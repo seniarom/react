@@ -1,0 +1,10 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.msg {
+  color: #82D7F7;
+  text-align: center;
+  font-weight: bold;
+}
