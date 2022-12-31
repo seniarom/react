@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
 
-export function MessageList({ messages }) {
+export function MessageList ({messages}) {
   console.log('messages', messages)
   return (
     <>
-      <h1>Chat</h1>
+      <h1>MessageList</h1>
       <ul>
         {messages.map((message, index) => (
           <li key={index}>
