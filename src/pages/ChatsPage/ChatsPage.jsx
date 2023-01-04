@@ -12,22 +12,19 @@ import { WithClasses } from '../../HOC/WithClasses'
 import styles from './ChatsPage.module.css'
 
 
-export function ChatsPage ({onAddChat, onAddMessage, messages, chats}) {
-  // const [messages, setMessages] = useState([])
-  const {chatId} = useParams()
+export function ChatsPage({ onAddChat, onAddMessage, messages, chats }) {
+
+  const { chatId } = useParams()
 
   const MessageListWithClass = WithClasses(MessageList)
 
-  // const addMessage = (newMessage) => {
-  //   console.log('newMessage', newMessage);
-  //   setMessages([...messages, newMessage])
-  // }
+
 
   useEffect(() => {
-    if (chatId && 
-        messages[chatId]?.length > 0 && 
-        messages[chatId][messages[chatId].length - 1].author === AUTHOR.user
-      ) {
+    if (chatId &&
+      messages[chatId]?.length > 0 &&
+      messages[chatId][messages[chatId].length - 1].author === AUTHOR.user
+    ) {
       const timeout = setTimeout(() => {
         onAddMessage(chatId, {
           author: AUTHOR.bot,
@@ -47,7 +44,7 @@ export function ChatsPage ({onAddChat, onAddMessage, messages, chats}) {
     }
   }
 
-  if(chatId && !messages[chatId]) {
+  if (chatId && !messages[chatId]) {
     return <Navigate to="/chats" replace />
   }
 
@@ -56,8 +53,8 @@ export function ChatsPage ({onAddChat, onAddMessage, messages, chats}) {
       <h1>Welcome to chat!</h1>
       <ChatList chats={chats} onAddChat={onAddChat} />
       <Form addMessage={handleAddMessage} />
-      {/* <MessageList messages={chatId ? messages[chatId] : []} /> */}
-      <MessageListWithClass 
+
+      <MessageListWithClass
         messages={chatId ? messages[chatId] : []}
         classes={styles.border}
       />
@@ -65,4 +62,3 @@ export function ChatsPage ({onAddChat, onAddMessage, messages, chats}) {
   )
 }
 
-// export default App

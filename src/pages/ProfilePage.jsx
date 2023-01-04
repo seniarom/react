@@ -12,7 +12,6 @@ export function ProfilePage() {
   const dispatch = useDispatch()
 
 
-
   const hendleChange = () => {
     console.log(value)
 
@@ -23,9 +22,7 @@ export function ProfilePage() {
   return (
     <>
       <h1>Profile Page</h1>
-      <p>{theme === 'light' ? '🌞' : '🌙'}</p>
-      <button onClick={toggleTheme}>Change theme</button>
-      <hr />
+
       <h2>{name}</h2>
       <input
         type="text"
